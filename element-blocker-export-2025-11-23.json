@@ -1,0 +1,647 @@
+{
+  "version": "1.0",
+  "exportDate": "2025-11-23T15:57:58.563Z",
+  "totalCount": 80,
+  "blockedElements": [
+    {
+      "url": "dzen.ru",
+      "selector": "#\\36 612792607085299414",
+      "method": "hidden",
+      "timestamp": 1763906021964,
+      "originalHTML": "<div class=\"dzen-desktop--feed-one-column-item__itemWrap-2Q dzen-desktop--feed-one-column-item__isRtb-Vn\" id=\"6612792607085299414\" data-type=\"ricvxB1hLrwk\"><div><article class=\"dzen-desktop--rmN7hPBZd",
+      "pageUrl": "https://dzen.ru/"
+    },
+    {
+      "url": "dzen.ru",
+      "selector": "#\\31 14468163520728617",
+      "method": "hidden",
+      "timestamp": 1763905984564,
+      "originalHTML": "<div class=\"dzen-desktop--feed-one-column-item__itemWrap-2Q dzen-desktop--feed-one-column-item__isRtb-Vn\" id=\"114468163520728617\" data-type=\"ricvxB1hLrwk\"><div><article class=\"dzen-desktop--rmN7hPBZdr",
+      "pageUrl": "https://dzen.ru/"
+    },
+    {
+      "url": "dzen.ru",
+      "selector": "div.dzen-desktop--corner-banner__root-sT:nth-child(47)",
+      "method": "hidden",
+      "timestamp": 1763905946813,
+      "originalHTML": "<div class=\"dzen-desktop--corner-banner__root-sT\"><div class=\"rn8X2NhZOuB4ulkNCxilynkX9PY5o1ah0e3FL9xwZx0LgaQ-3J rn8X2NhZOuB4ulkNCxilynkX9PY5o1ah0e3FL9xwZ00jq6Xo9wWWUtg-1b\" data-rj9rglfjo=\"dzenpro-ban",
+      "pageUrl": "https://dzen.ru/"
+    },
+    {
+      "url": "dzen.ru",
+      "selector": "div.dzen-desktop--feed-one-column-right-panel__rmND9LFpDswg3-2i:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905939413,
+      "originalHTML": "<div class=\"dzen-desktop--feed-one-column-right-panel__rmND9LFpDswg3-2i dzen-desktop--feed-one-column-right-panel__isClient-2l\" data-testid=\"right-ad-block\"><div class=\"dzen-desktop--feed-one-column-r",
+      "pageUrl": "https://dzen.ru/"
+    },
+    {
+      "url": "dzen.ru",
+      "selector": "div.rn8X2NhZOuB4ulkNCxilkkFuaNZUmw6IqcXVU2Bwx3Eno6FEOwXuVp1xsgvY-h0:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905928663,
+      "originalHTML": "<div class=\"rn8X2NhZOuB4ulkNCxilkkFuaNZUmw6IqcXVU2Bwx3Eno6FEOwXuVp1xsgvY-h0\"><div class=\"rn8X2NhZOuB4ulkNCxilkkFuaNZUmw6IqcXVU2Bwx3Eno6FE-3p\"><div class=\"rn8X2NhZOuB4ulkNCxil3mkSaOZIhnK5yYndB6SA_mFrm6",
+      "pageUrl": "https://dzen.ru/"
+    },
+    {
+      "url": "my.mail.ru",
+      "selector": "div.ct4nm5gp0ec8i2wtzu2o5n:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905600739,
+      "originalHTML": "<div class=\"ct4nm5gp0ec8i2wtzu2o5n \">\n\t<div class=\"je77h3kqh95zx9h5madv\">\n\t\t<span class=\"q84wmibq2p5fhte0zagpu\">myTarget</span>\n\t</div>\n\n\t<div class=\"kol1wbts3ui0diksd4pjikv\">\n\t\t\t\t<div class=\"k27s7ghq",
+      "pageUrl": "https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_link_id=v6h9q7&mt_sub1=love.mail.ru"
+    },
+    {
+      "url": "my.mail.ru",
+      "selector": "div.ai6z42yy8l9uldb6g8hzta:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905565172,
+      "originalHTML": "<div class=\"ai6z42yy8l9uldb6g8hzta mj1h7m0a6m61nqzow9rxn\" style=\"display: block; opacity: 1; visibility: visible; height: 553px; width: 240px; inset: 15px auto auto; padding: 0px; margin: 0px 0px 40px",
+      "pageUrl": "https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_link_id=v6h9q7&mt_sub1=love.mail.ru"
+    },
+    {
+      "url": "my.mail.ru",
+      "selector": "div.xevpbfq4jrsbjqip0rolvn:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763905537438,
+      "originalHTML": "<div class=\"xevpbfq4jrsbjqip0rolvn s4572awmzo0g2nz6i2h348\" style=\"position:absolute;display:block;opacity:1;visibility:visible;height:auto;width:240px;left:auto;right:0px;top:0px;bottom:auto;padding-l",
+      "pageUrl": "https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_link_id=v6h9q7&mt_sub1=love.mail.ru"
+    },
+    {
+      "url": "my.mail.ru",
+      "selector": "div.b-history__top-rb-banner:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905528971,
+      "originalHTML": "<div class=\"b-history__top-rb-banner ui-simple-block\">\n\t\t\t\t\t\t\n\t\n\t\t<span class=\"banner-441648\">\n\n\n\n\n\n\n<div class=\"mailru-visibility-check\" id=\"mailru1763905517388372421\"> <span class=\"mailru-visibility",
+      "pageUrl": "https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_link_id=v6h9q7&mt_sub1=love.mail.ru"
+    },
+    {
+      "url": "my.mail.ru",
+      "selector": "div.b-fourth-pseudo-column:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763905510754,
+      "originalHTML": "<div class=\"b-fourth-pseudo-column b-fourth-pseudo-column_inner  \">\n\t\t<div class=\"b-fourth-pseudo-column_wrapper double\" data-mru-fragment=\"additional-banners\" data-mru-fragment-ready=\"true\">\n\t\t\t<scri",
+      "pageUrl": "https://my.mail.ru/?from=whiteline&utm_source=portal&utm_medium=new_portal_navigation&utm_campaign=my.mail.ru&mt_link_id=v6h9q7&mt_sub1=love.mail.ru"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "#trg-b-meta298-490404636",
+      "method": "hidden",
+      "timestamp": 1763905276033,
+      "originalHTML": "<div class=\"trg-b-wrap-meta-sticky \" id=\"trg-b-meta298-490404636\" data-mkit-role=\"meta\"><button type=\"button\" class=\"trg-b-wrap-meta-sticky__close\" data-mkit-role=\"closeBanner\"><svg width=\"12\" height=",
+      "pageUrl": "https://news.mail.ru/politics/68821624/"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "#b199449259_1055584981",
+      "method": "hidden",
+      "timestamp": 1763905264616,
+      "originalHTML": "<div id=\"b199449259_1055584981\" style=\"width:100%;height:100%;height: 100vh; width: 100vw; position: fixed; top: 0; left: 0; z-index: 1000;\"><div class=\"zrfh1p5crfn element-blocker-blocked\" theme=\"lig",
+      "pageUrl": "https://news.mail.ru/politics/68821492/?from=swap&swap=2"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "#mailru1763905186681700681",
+      "method": "hidden",
+      "timestamp": 1763905255199,
+      "originalHTML": "<div class=\"wrap_3545700477\" data-func-elem=\"wrap_3545700477\" id=\"mailru1763905186681700681\">\n    \n    \n    <div style=\"max-width: 1260px; margin: 0 auto;\"> \n    <style>#trg-b-meta298-1956565845 {widt",
+      "pageUrl": "https://news.mail.ru/politics/68821492/?from=swap&swap=2"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.zrfh1p5crfn:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905247816,
+      "originalHTML": "<div class=\"zrfh1p5crfn\" theme=\"light\" psziyot=\"\" needcontrols=\"false\" adchoicesize=\"S row\" isfullscreen=\"undefined\" ismobile=\"false\"><div class=\"pc10rv2yvra5 r6k9l1t4aog element-blocker-blocked\" data",
+      "pageUrl": "https://news.mail.ru/politics/68821492/?from=swap&swap=2"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.pc10rv2yvra5:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763905242749,
+      "originalHTML": "<div class=\"pc10rv2yvra5 r6k9l1t4aog\" data-not-given=\"aboutCompany\" view=\"row\" style=\"--media-width: 640px; --media-height: 800px; --info-width: 760px; --info-height: 800px; --original-media-width: 64",
+      "pageUrl": "https://news.mail.ru/politics/68821492/?from=swap&swap=2"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.zj22i4o7zwv:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763905231849,
+      "originalHTML": "<div class=\"zj22i4o7zwv\"><div class=\"g1srnglw94h\"><div class=\"u9kn2pq8xcz\"><div class=\"jo14p17s248 d8wi4y369c9 r6k9l1t4aog\">Облачный гейминг VK Play Cloud</div><div class=\"jo14p17s248 hg9lov39jf5 r6k9",
+      "pageUrl": "https://news.mail.ru/politics/68821492/?from=swap&swap=2"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "a.mailru-morda-desktop--feed-mailru-header__link-2p:nth-child(4)",
+      "method": "hidden",
+      "timestamp": 1763904822074,
+      "originalHTML": "<a class=\"mailru-morda-desktop--feed-mailru-header__link-2p\" href=\"https://dzen.ru\" rel=\"dofollow\" target=\"_blank\" data-testid=\"header-link\"></a>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--feed-mailru-header__title-1K:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904820674,
+      "originalHTML": "<div class=\"mailru-morda-desktop--feed-mailru-header__title-1K\">Дзен — новости, видео и статьи на любую тему</div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--feed-mailru-header__headerWrapper-x4:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904819507,
+      "originalHTML": "<div class=\"mailru-morda-desktop--feed-mailru-header__headerWrapper-x4\" data-testid=\"feed-mailru-header\"><svg class=\"mailru-morda-desktop--generic-svg__genericSvg-2w\" width=\"20\" height=\"20\" viewBox=\"0",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--media__backdrop-3o:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904787990,
+      "originalHTML": "<div class=\"mailru-morda-desktop--media__backdrop-3o\" style=\"background-image: url(&quot;https://r.mradx.net/imgs/0e/85/7e11ebf7663465f7.jpg&quot;);\"></div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--media__container-UQ:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904787156,
+      "originalHTML": "<div class=\"mailru-morda-desktop--media__container-UQ mailru-morda-desktop--floors-single-v4__image-3R\"><div class=\"mailru-morda-desktop--media__backdrop-3o\" style=\"background-image: url(&quot;https:/",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.widget__container:nth-child(4)",
+      "method": "hidden",
+      "timestamp": 1763904774639,
+      "originalHTML": "<div class=\"widget__container odpqikm__1xvfbnh\"><div class=\"calendar-container odpqikm__1t5thnd\"><div class=\"calendar-header odpqikm__wf168s element-blocker-blocked\" style=\"display: none !important;\">",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.widget__container:nth-child(3)",
+      "method": "hidden",
+      "timestamp": 1763904773773,
+      "originalHTML": "<div class=\"widget__container odpqikm__1xvfbnh\"> <div class=\"horoscope odpqikm__cjuwi5\"><a class=\"horoscope__link odpqikm__cjuwi5\" href=\"https://horo.mail.ru/prediction/today/?frommail=1\" target=\"_bla",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.widget__container:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904772639,
+      "originalHTML": "<div class=\"widget__container odpqikm__1xvfbnh\"><div class=\"mailbox-container odpqikm__r060l7\" data-testid=\"mailbox\"><div id=\"mailbox\" class=\"mailbox odpqikm__r060l7\"><div class=\"logged-out-one-click ",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__kebab-2u:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904734272,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__kebab-2u\"><button class=\"mailru-morda-desktop--tap-icon__rootElement-lJ mailru-morda-desktop--use-icon-hover__icon_tertiary-Fm mailru-morda-desktop--ta",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "a.mailru-morda-desktop--ad-link__adLink-MN:nth-child(3)",
+      "method": "hidden",
+      "timestamp": 1763904732189,
+      "originalHTML": "<a class=\"mailru-morda-desktop--ad-link__adLink-MN\" href=\"https://t.mail.ru/redir/AACg_QFdyLegbotcJyz3JFHjyZEyeqa9gmmVdnwjCD5fsbomI1i1Bx15uvk8B33LSXVIbez5lsNuzUUrZiXcZioGqT7YF5pE6uxw6lpMMQ3-fced2RcYOl",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__category-3J:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904731522,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__category-3J\">Реклама&nbsp;18+</div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "span.mailru-morda-desktop--mimic-heading__domainText-25:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904731055,
+      "originalHTML": "<span class=\"mailru-morda-desktop--mimic-heading__domainText-25\">stroynee.pro</span>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__domain-1Y:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904730555,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__domain-1Y\"><span class=\"mailru-morda-desktop--mimic-heading__domainText-25\">stroynee.pro</span></div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__meta-1C:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904729089,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__meta-1C\"><div class=\"mailru-morda-desktop--mimic-heading__domain-1Y\"><span class=\"mailru-morda-desktop--mimic-heading__domainText-25\">stroynee.pro</spa",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--favicon__favicon-2p:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904727805,
+      "originalHTML": "<div class=\"mailru-morda-desktop--favicon__favicon-2p mailru-morda-desktop--favicon__withGradientOverlay-1W\"><img src=\"https://r.mradx.net/img/E6/A31C0F.jpg\" class=\"mailru-morda-desktop--favicon__icon",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__favicon-2m:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904726938,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__favicon-2m\"><div class=\"mailru-morda-desktop--favicon__container-3-\"><div class=\"mailru-morda-desktop--favicon__favicon-2p mailru-morda-desktop--favico",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__info-1N:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904725888,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__info-1N\" data-testid=\"header-info\"><div class=\"mailru-morda-desktop--mimic-heading__favicon-2m\"><div class=\"mailru-morda-desktop--favicon__container-3-",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--mimic-heading__heading-33:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904725272,
+      "originalHTML": "<div class=\"mailru-morda-desktop--mimic-heading__heading-33 mailru-morda-desktop--mimic-heading__transition150-15 mailru-morda-desktop--mimic-heading__withKebab-3v\"><div class=\"mailru-morda-desktop--m",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "a.mailru-morda-desktop--ad-link__adLink-MN:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904723722,
+      "originalHTML": "<a class=\"mailru-morda-desktop--ad-link__adLink-MN\" href=\"https://t.mail.ru/redir/AACg_QFdyLegbotcJyz3JFHjyZEyeqa9gmmVdnwjCD5fsbomI1i1Bx15uvk8B33LSXVIbez5lsNuzUUrZiXcZioGqT7YF5pE6uxw6lpMMQ3-fced2RcYOl",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--floors-v4__root-3D:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904722505,
+      "originalHTML": "<div class=\"mailru-morda-desktop--floors-v4__root-3D mailru-morda-desktop--mimic-heading__root-2l mailru-morda-desktop--floors-v4__mail-2Y\"><a class=\"mailru-morda-desktop--ad-link__adLink-MN\" href=\"ht",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.mailru-morda-desktop--card-rtb__ad-yp:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904720072,
+      "originalHTML": "<div class=\"mailru-morda-desktop--card-rtb__ad-yp\" data-ad-type=\"mytarget\"><div><div class=\"mailru-morda-desktop--floors-v4__root-3D mailru-morda-desktop--mimic-heading__root-2l mailru-morda-desktop--",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "#card-rtb",
+      "method": "hidden",
+      "timestamp": 1763904718538,
+      "originalHTML": "<article class=\"mailru-morda-desktop--card-wrapper__cardWrapper-hp mailru-morda-desktop--card-wrapper__themeLight-KL mailru-morda-desktop--card-rtb__zenadCardRtb-79 mailru-morda-desktop--card-rtb__wit",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "a.calendar-header__add-btn:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904712705,
+      "originalHTML": "<a href=\"https://calendar.mail.ru/?action=createEvent&amp;createContent=widget_main_click\" target=\"_blank\" rel=\"noreferrer\" class=\"calendar-header__add-btn odpqikm__wf168s\"><svg width=\"20\" height=\"20\"",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.calendar-header__title:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904712055,
+      "originalHTML": "<div class=\"calendar-header__title odpqikm__wf168s\">ноябрь</div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.calendar-header__content:nth-child(2)",
+      "method": "hidden",
+      "timestamp": 1763904711222,
+      "originalHTML": "<div class=\"calendar-header__content odpqikm__wf168s\"><div class=\"calendar-header__title odpqikm__wf168s\">ноябрь</div> <ul class=\"calendar-subtitle odpqikm__yh29wj\" style=\"--informer-animation-duratio",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.calendar-header__icon:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904710505,
+      "originalHTML": "<div class=\"calendar-header__icon odpqikm__wf168s\">23</div>",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "a.calendar-header__container:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904709471,
+      "originalHTML": "<a href=\"https://calendar.mail.ru\" target=\"_blank\" rel=\"noreferrer\" class=\"calendar-header__container odpqikm__wf168s\"><div class=\"calendar-header__icon odpqikm__wf168s\">23</div> <div class=\"calendar-",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.calendar-header:nth-child(1)",
+      "method": "hidden",
+      "timestamp": 1763904708255,
+      "originalHTML": "<div class=\"calendar-header odpqikm__wf168s\"><a href=\"https://calendar.mail.ru\" target=\"_blank\" rel=\"noreferrer\" class=\"calendar-header__container odpqikm__wf168s\"><div class=\"calendar-header__icon od",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "market.yandex.ru",
+      "selector": "aside.ds-flex.ds-flex_col._3_S17",
+      "method": "hidden",
+      "timestamp": 1763899434583,
+      "originalHTML": "<aside class=\"ds-flex ds-flex_col _3_S17\"><div id=\"/content/page/fancyPage/vq0pzf3q9a\" data-apiary-widget-name=\"@monetize/HeroBannersCarousel\"><!--BEGIN [@monetize/HeroBannersCarousel] /content/page/f",
+      "pageUrl": "https://market.yandex.ru/my/orders?filter=COMPLETED"
+    },
+    {
+      "url": "market.yandex.ru",
+      "selector": "div._3dfdb._1EAEx",
+      "method": "hidden",
+      "timestamp": 1763899295680,
+      "originalHTML": "<div class=\"_3dfdb _1EAEx\"><script data-apiary=\"chunks\" nonce=\"\">(window.apiarySleepingQueue=window.apiarySleepingQueue||[]).push('@light/RecomProductBlockSnippet');</script><div id=\"/content/page/fan",
+      "pageUrl": "https://market.yandex.ru/"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\37 \"]",
+      "method": "hidden",
+      "timestamp": 1763898213108,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"7\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1731557\" data-logger-id=\"1731557",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\36 \"]",
+      "method": "hidden",
+      "timestamp": 1763898206275,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"6\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1731557\" data-logger-id=\"1731557",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "aside.f94a54c046.fda27cfce9",
+      "method": "hidden",
+      "timestamp": 1763898185524,
+      "originalHTML": "<aside class=\"f94a54c046 fda27cfce9\"><div class=\"d127d44730 blocked-element-hidden\" style=\"display: none !important;\"><div class=\"d520816505 f4fb7c3b24 blocked-element-hidden\" style=\"display: none !im",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.d127d44730",
+      "method": "hidden",
+      "timestamp": 1763898180474,
+      "originalHTML": "<div class=\"d127d44730\"><div class=\"d520816505 f4fb7c3b24 blocked-element-hidden\" style=\"display: none !important;\"><div class=\"c16f22c9ae b2b76732be\"><div class=\"f66e86fcac\"><div class=\"c229512398 bl",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.d520816505.f4fb7c3b24",
+      "method": "hidden",
+      "timestamp": 1763898176924,
+      "originalHTML": "<div class=\"d520816505 f4fb7c3b24\"><div class=\"c16f22c9ae b2b76732be\"><div class=\"f66e86fcac\"><div class=\"c229512398 blocked-element-hidden\" style=\"min-height: 350px; display: none !important;\" data-h",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "a.rb-156196368__link",
+      "method": "hidden",
+      "timestamp": 1763898160390,
+      "originalHTML": "<a class=\"rb-156196368__link\" href=\"https://r.mail.ru/n437334606?sz=0&amp;_SITEID=537&amp;rnd=1143146183\" rel=\"noopener\" target=\"_blank\">\n\t\t\t\t\t<span>Вам ссылка: мошенники перед «черной пятницей» усили",
+      "pageUrl": "https://science.mail.ru/articles/40174-23-noyabrya-osnovanie-mifi/?from=swap&swap=3"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\34 \"]",
+      "method": "hidden",
+      "timestamp": 1763898151090,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"4\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1731557\" data-logger-id=\"1731557",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b689e3648f",
+      "method": "hidden",
+      "timestamp": 1763898145057,
+      "originalHTML": "<div class=\"b689e3648f\" style=\"top: 8px; left: 120px;\"><div class=\"cc452cdd09\"><div class=\"e795d2b1a3\"><div data-qa=\"Title\" class=\"c30ebf5669 e5a135dead b095da1b4b\">Будьте в курсе — подпишитесь на уве",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\33 \"]",
+      "method": "hidden",
+      "timestamp": 1763898136357,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"3\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1731547\" data-logger-id=\"1731547",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\31 \"]",
+      "method": "hidden",
+      "timestamp": 1763898126890,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"1\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1730246\" data-logger-id=\"1730246",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div[data-rb-slot=\"Slot\\.1731569\"]",
+      "method": "hidden",
+      "timestamp": 1763898117956,
+      "originalHTML": "<div data-rb-slot=\"Slot.1731569\" data-logger-id=\"1731569\">\n\n\n\n\n\n\n\n\n\n\n\n\n<script>\n  try{\n    (function (w, d, prefix) {\n    w.RB = w.RB && w.RB.v && w.RB.v === 1 ? w.RB : (function () {\n      var // mai",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "#rb-194573230-1269960951-sticky",
+      "method": "hidden",
+      "timestamp": 1763898112123,
+      "originalHTML": "<div id=\"rb-194573230-1269960951-sticky\" class=\"rb-194573230-1269960951-sticky\"><div class=\"rb-194573230-1269960951-sticky__container\"><div class=\"rb-194573230-1269960951-sticky__title\"><svg class=\"rb",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.c229512398[data-hideorder=\"\\31 0\"]",
+      "method": "hidden",
+      "timestamp": 1763898102773,
+      "originalHTML": "<div class=\"c229512398\" style=\"min-height:630px\" data-hideorder=\"10\" data-size=\"630\"><div data-rb-slot=\"Slot.1730229\" data-logger-id=\"1730229\"><img src=\"https://rs.mail.ru/d174496233.gif?sz=&amp;rnd=1",
+      "pageUrl": "https://science.mail.ru/news/40052-programmnyij-kot-emotsionalnoe-myaukane-pomozhet-sozdat-empatichnyij-ii/?from=swap&swap=2"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div.b6a5d4949c.e45a4c1552.lazy-contentroll-group.entered[data-lazy-group-index=\"\\32 \"]",
+      "method": "hidden",
+      "timestamp": 1763898097339,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"b6a5d4949c e45a4c1552 lazy-contentroll-group entered\" data-lazy-group-index=\"2\" data-ll-status=\"entered\" data-rb-slot=\"Slot.1730262\" data-logger-id=\"1730262",
+      "pageUrl": "https://science.mail.ru/news/40038-yaponka-vyshla-zamuzh-za-chatgpt/?user_id=6069165209367433851"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "#mailru1763898085589956258",
+      "method": "hidden",
+      "timestamp": 1763898094089,
+      "originalHTML": "<div class=\"mailru-visibility-check\" id=\"mailru1763898085589956258\"> <span class=\"mailru-visibility-check-counter\" data-counter=\"https://rs.mail.ru/pixel/AACg_QGN2zX969L1yOHDtQDdVHlRn-I7y21NbwZ34cH6GU",
+      "pageUrl": "https://science.mail.ru/news/40038-yaponka-vyshla-zamuzh-za-chatgpt/?user_id=6069165209367433851"
+    },
+    {
+      "url": "science.mail.ru",
+      "selector": "div[data-logger-parent=\"top\"]",
+      "method": "hidden",
+      "timestamp": 1763898062972,
+      "originalHTML": "<div data-logger-parent=\"top\"><div data-rb-slot=\"Slot.1731569\" data-logger-id=\"1731569\">\n\n\n\n\n\n\n\n\n\n\n\n\n<script>\n  try{\n    (function (w, d, prefix) {\n    w.RB = w.RB && w.RB.v && w.RB.v === 1 ? w.RB : (",
+      "pageUrl": "https://science.mail.ru/news/40038-yaponka-vyshla-zamuzh-za-chatgpt/?user_id=6069165209367433851"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "#b199628600_1130695836",
+      "method": "hidden",
+      "timestamp": 1763898025288,
+      "originalHTML": "<div id=\"b199628600_1130695836\" style=\"width:100%;height:100%;height: 100vh; width: 100vw; position: fixed; top: 0; left: 0; z-index: 1000;\"><div class=\"fnerr6s3dh4 blocked-element-hidden\" theme=\"ligh",
+      "pageUrl": "https://news.mail.ru/society/68552559/?from=swap&swap=4"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.fnerr6s3dh4",
+      "method": "hidden",
+      "timestamp": 1763898009554,
+      "originalHTML": "<div class=\"fnerr6s3dh4\" theme=\"light\" cojlupv=\"\" needcontrols=\"true\" adchoicesize=\"L row\" isfullscreen=\"true\" ismobile=\"false\"><div class=\"j2cfx4qdipj qzldlk32r1d blocked-element-hidden\" data-not-giv",
+      "pageUrl": "https://news.mail.ru/politics/68820431/?from=swap&swap=3"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.j2cfx4qdipj.qzldlk32r1d[data-not-given=\"aboutCompany\"]",
+      "method": "hidden",
+      "timestamp": 1763897998137,
+      "originalHTML": "<div class=\"j2cfx4qdipj qzldlk32r1d\" data-not-given=\"aboutCompany\" view=\"row\" style=\"--media-width: 1000px; --media-height: 800px; --info-width: 400px; --info-height: 800px; --original-media-width: 10",
+      "pageUrl": "https://news.mail.ru/politics/68820620/"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.d4d7f9cef4.df068f8f97[data-logger=\"ArticleContent_article-extender\"]",
+      "method": "hidden",
+      "timestamp": 1763897972187,
+      "originalHTML": "<div article-item-type=\"article-extender\" data-logger=\"ArticleContent_article-extender\" class=\"d4d7f9cef4 df068f8f97\" data-logger-id=\"wnr5dm7voxo4\"><div data-qa=\"Extender\" class=\"e5f8fe7abe\"><div clas",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.d4d7f9cef4.df068f8f97.lazy-contentroll-group.entered[data-lazy-group-index=\"\\31 \"]",
+      "method": "hidden",
+      "timestamp": 1763897964720,
+      "originalHTML": "<div article-item-type=\"contentroll\" class=\"d4d7f9cef4 df068f8f97 lazy-contentroll-group entered\" data-lazy-group-index=\"1\" data-ll-status=\"entered\" data-rb-slot=\"Slot.101799\" data-logger-id=\"101799\">",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "#mailru1763897925919915389",
+      "method": "hidden",
+      "timestamp": 1763897959286,
+      "originalHTML": "<div class=\"mailru-visibility-check\" id=\"mailru1763897925919915389\"> <span class=\"mailru-visibility-check-counter\" data-counter=\"https://rs.mail.ru/pixel/AACg_QFYEqQHMClZk_i9_hX1j--uG-WxzeOjGe8Z14rO36",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.rb-147964806-recommendation-link.js-147964806-recommendation-link-container.rb--recommendation-link",
+      "method": "hidden",
+      "timestamp": 1763897950670,
+      "originalHTML": "<div class=\"rb-147964806-recommendation-link js-147964806-recommendation-link-container rb--recommendation-link\"><div class=\"rb-147964806-recommendation-link__icon\"><svg width=\"32\" height=\"32\" fill=\"n",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "aside.effcfde697.bc1609c1d0",
+      "method": "hidden",
+      "timestamp": 1763897943053,
+      "originalHTML": "<aside class=\"effcfde697 bc1609c1d0\"><div class=\"e95f64582c\"><div class=\"e188059065 de5292c139\"><div class=\"aad9e7b84f\"><div class=\"ece60e56fd e03e44c074\" style=\"top:68px\"><div class=\"c3405583bc\" styl",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "news.mail.ru",
+      "selector": "div.rb-161668000-3947536895.mediaTrendEmbed",
+      "method": "hidden",
+      "timestamp": 1763897936136,
+      "originalHTML": "<div class=\"rb-161668000-3947536895 mediaTrendEmbed\"> <div class=\"VideoEmbed\"><div class=\"VideoList MediaTrend-algo06\"><div class=\"Title MediaTrend-algo06\"><span class=\"TitleInner MediaTrend-algo06\">В",
+      "pageUrl": "https://news.mail.ru/politics/68819254/?md=1"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.odpqikm__41yhhz",
+      "method": "hidden",
+      "timestamp": 1763897885635,
+      "originalHTML": "<div class=\"odpqikm__41yhhz\"><div class=\"widget__container odpqikm__1xvfbnh\">  <div class=\"weather odpqikm__gzml55\"><div class=\"weather__content odpqikm__gzml55\"><div class=\"weather__header odpqikm__g",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.tgbv-wrapper__trap",
+      "method": "hidden",
+      "timestamp": 1763897862218,
+      "originalHTML": "<div class=\"tgbv-wrapper__trap\"><div class=\"tgbv-wrapper\"><div class=\"tgbv-wrapper__container\"><div id=\"commercial_167201948_1964066410\" style=\"box-shadow: 0px 4px 12px 0px rgba(18, 25, 43, 0.12); bor",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.tgb-wrapper__trap",
+      "method": "hidden",
+      "timestamp": 1763897853418,
+      "originalHTML": "<div class=\"tgb-wrapper__trap\"><div class=\"tgb-wrapper allow-overflow allow-no-bg allow-no-shadow\"><div class=\"tgb-wrapper__container\">\n\n\n\n\n\n\n<div class=\"mailru-visibility-check\" id=\"mailru17638978411",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "mail.ru",
+      "selector": "div.multiformat300x300NewDesign--item--eYL1t_.trg-visibility-check.clickarea--enabled--qDRznF[data-trg-id=\"\\31 98219414\"]",
+      "method": "hidden",
+      "timestamp": 1763897634347,
+      "originalHTML": "<div data-trg-id=\"198219414\" class=\"multiformat300x300NewDesign--item--eYL1t_ trg-visibility-check clickarea--enabled--qDRznF\" style=\"height: 300px;\" data-clickwrap=\"wrap\"><span data-counter=\"https://",
+      "pageUrl": "https://mail.ru/"
+    },
+    {
+      "url": "vk.com",
+      "selector": "#feed_filters",
+      "method": "hidden",
+      "timestamp": 1763897587012,
+      "originalHTML": "<div id=\"feed_filters\" style=\"\">\n  \n    <div class=\"page_block apps_feedRightAppsBlock apps_feedRightAppsBlock_single_app apps_feedRightAppsBlock_single_app--promo\" data-testid=\"feed_apps_right_block\"",
+      "pageUrl": "https://vk.com/feed"
+    },
+    {
+      "url": "vk.com",
+      "selector": "div.apps_feedRightAppsBlock__row",
+      "method": "hidden",
+      "timestamp": 1763897579562,
+      "originalHTML": "<div class=\"apps_feedRightAppsBlock__row\">\n          <a class=\"apps_feedRightAppsBlock__avaWrap\" onclick=\"return showApp(event, 54212896, 0, 'feed_r_block_featured_promo_game');\">\n            <img cla",
+      "pageUrl": "https://vk.com/feed"
+    },
+    {
+      "url": "vk.com",
+      "selector": "#ads_leftmenu",
+      "method": "hidden",
+      "timestamp": 1763897548095,
+      "originalHTML": "<div id=\"ads_leftmenu\" class=\"LeftAds__adsRoot--ImuxT\" style=\"overflow: visible; display: block;\"><div style=\"display: block; position: static; left: 0px; top: 0px; opacity: 1;\"><div class=\"ads_ads_bo",
+      "pageUrl": "https://vk.com/im/convo/41209426?entrypoint=list_all"
+    },
+    {
+      "url": "market.yandex.ru",
+      "selector": "div.cia-vs.cia-cs[data-zone-name=\"headerPromoStreamer\"]",
+      "method": "hidden",
+      "timestamp": 1763897501194,
+      "originalHTML": "<div class=\"cia-vs cia-cs\" data-zone-name=\"headerPromoStreamer\" data-node-id=\"cehx_hltz_1\" data-baobab-name=\"headerPromoStreamer\"><div id=\"/content/header/doyle9rt2dv/madvHeaderPromo\" data-apiary-widg",
+      "pageUrl": "https://market.yandex.ru/"
+    },
+    {
+      "url": "market.yandex.ru",
+      "selector": "#\\/content\\/header\\/wynfdfao57a",
+      "method": "hidden",
+      "timestamp": 1763897416609,
+      "originalHTML": "<div id=\"/content/header/wynfdfao57a\" data-apiary-widget-name=\"@marketfront/MadvHeaderPromo\"><!--BEGIN [@marketfront/MadvHeaderPromo] /content/header/wynfdfao57a static--><div class=\"cia-vs cia-cs\" da",
+      "pageUrl": "https://market.yandex.ru/"
+    }
+  ]
+}

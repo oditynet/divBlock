@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 500px; margin: 0; padding: 10px; font-family: Arial, sans-serif; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .controls { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .export-btn, .import-btn, .analyze-btn { 
+      background: #2196F3; color: white; border: none; padding: 6px 12px; border-radius: 4px; 
+      cursor: pointer; font-size: 11px; 
+    }
+    .import-btn { background: #4CAF50; }
+    .analyze-btn { background: #FF9800; }
+    .blocked-list { max-height: 400px; overflow-y: auto; }
+    .blocked-item { border: 1px solid #ddd; padding: 8px; margin: 5px 0; border-radius: 4px; }
+    .blocked-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .blocked-url { font-weight: bold; color: #333; font-size: 12px; }
+    .blocked-selector { background: #f5f5f5; padding: 4px; border-radius: 2px; font-size: 11px; margin: 5px 0; word-break: break-all; }
+    .blocked-time { color: #666; font-size: 10px; }
+    .remove-btn { background: #f44336; color: white; border: none; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 10px; }
+    .empty-message { text-align: center; color: #666; padding: 20px; }
+    .current-site { font-size: 12px; color: #666; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3 style="margin: 0;">Element Blocker</h3>
+    <span id="currentCount" style="background: #ff4444; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px;">0</span>
+  </div>
+  
+  <div id="currentSite" class="current-site"></div>
+  
+  <div class="controls">
+    <button id="exportBtn" class="export-btn">Экспорт всех блокировок</button>
+    <button id="importBtn" class="import-btn">Импорт блокировок</button>
+    <button id="analyzeBtn" class="analyze-btn">Анализ элементов</button>
+  </div>
+  
+  <div id="blockedList" class="blocked-list">
+    <div class="empty-message">Нет заблокированных элементов</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
