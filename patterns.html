@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Управление паттернами - Element Blocker</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #333; 
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .pattern-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            background: #f9f9f9;
+        }
+        .pattern-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .pattern-item:last-child {
+            border-bottom: none;
+        }
+        .add-form {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .add-form input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button.remove {
+            background: #f44336;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-button.active {
+            border-bottom-color: #2196F3;
+            color: #2196F3;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Управление паттернами</h1>
+        
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="domains">Рекламные домены</button>
+            <button class="tab-button" data-tab="analytics">Элементы аналитики</button>
+            <button class="tab-button" data-tab="selectors">Рекламные селекторы</button>
+        </div>
+        
+        <!-- Вкладка рекламных доменов -->
+        <div id="domains" class="tab-content active">
+            <div class="section">
+                <h3>Рекламные домены</h3>
+                <p>Добавляйте домены, которые содержат рекламу. Элементы с этими доменами будут автоматически обнаруживаться.</p>
+                
+                <div class="add-form">
+                    <input type="text" id="newDomain" placeholder="Например: ads.example.com">
+                    <button id="addDomain">Добавить домен</button>
+                </div>
+                
+                <div class="pattern-list" id="domainList">
+                    <!-- Список доменов будет здесь -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка элементов аналитики -->
+        <div id="analytics" class="tab-content">
+            <div class="section">
+                <h3>Элементы аналитики</h3>
+                <p>Добавляйте CSS селекторы для скрытых элементов аналитики и трекеров.</p>
+                
+                <div class="add-form">
+                    <input type="text" id="newAnalytics" placeholder="Например: [data-tracking], .analytics-pixel">
+                    <button id="addAnalytics">Добавить селектор</button>
+                </div>
+                
+                <div class="pattern-list" id="analyticsList">
+                    <!-- Список селекторов аналитики будет здесь -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка рекламных селекторов -->
+        <div id="selectors" class="tab-content">
+            <div class="section">
+                <h3>Рекламные селекторы</h3>
+                <p>Добавляйте CSS селекторы для рекламных элементов на страницах.</p>
+                
+                <div class="add-form">
+                    <input type="text" id="newSelector" placeholder="Например: .ad-banner, #ad-container">
+                    <button id="addSelector">Добавить селектор</button>
+                </div>
+                
+                <div class="pattern-list" id="selectorList">
+                    <!-- Список рекламных селекторов будет здесь -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container" style="text-align: center; margin-top: 20px;">
+            <button id="closeButton">Закрыть</button>
+            <button id="exportPatterns" style="background: #4CAF50;">Экспорт паттернов</button>
+            <button id="importPatterns" style="background: #FF9800;">Импорт паттернов</button>
+        </div>
+    </div>
+
+    <script src="patterns.js"></script>
+    <script src="patterns-ui.js"></script>
+</body>
+</html>

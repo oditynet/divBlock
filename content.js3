@@ -1,4 +1,4 @@
-// content.js - Полная версия с исправленным позиционированием виджета
+// content.js - Полная версия с исправлением ошибок redeclaration
 
 // Защита от повторного выполнения
 if (window.elementBlockerInstance) {
@@ -206,17 +206,36 @@ if (window.elementBlockerInstance) {
                 .element-blocker-widget {
                     position: fixed !important;
                     background: white !important;
-                    border: 2px solid #4CAF50 !important;
+                    border: 2px solid #FF9800 !important;
                     border-radius: 8px !important;
                     padding: 15px !important;
                     box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
                     z-index: 2147483647 !important;
                     font-family: Arial, sans-serif !important;
-                    max-width: 400px !important;
                 }
                 
-                .element-blocker-analysis {
-                    border-color: #FF9800 !important;
+                .element-blocker-overlay {
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100vw !important;
+                    height: 100vh !important;
+                    background: rgba(0,0,0,0.5) !important;
+                    z-index: 2147483646 !important;
+                }
+                
+                .element-blocker-highlight-info {
+                    position: fixed !important;
+                    top: 10px !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    background: rgba(0,0,0,0.8) !important;
+                    color: white !important;
+                    padding: 10px 15px !important;
+                    border-radius: 5px !important;
+                    z-index: 2147483647 !important;
+                    font-family: Arial, sans-serif !important;
+                    font-size: 12px !important;
                 }
             `;
             
@@ -258,10 +277,7 @@ if (window.elementBlockerInstance) {
             browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 console.log('Message received:', message);
                 
-                if (message.action === "ping") {
-                    sendResponse({status: "ready"});
-                    return true;
-                } else if (message.action === "openBlocker") {
+                if (message.action === "openBlocker") {
                     this.openFromContextMenu();
                     sendResponse({success: true});
                 } else if (message.action === "startAnalysis") {
@@ -552,13 +568,16 @@ if (window.elementBlockerInstance) {
             if (this.widget) {
                 this.widget.remove();
             }
+
+            this.createOverlay();
             
             this.widget = document.createElement('div');
             this.widget.className = 'element-blocker-widget element-blocker-analysis';
             this.widget.style.cssText = `
                 position: fixed !important;
-                bottom: 20px !important;
-                right: 20px !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
                 width: 500px !important;
                 max-height: 70vh !important;
                 background: white !important;
@@ -649,12 +668,42 @@ if (window.elementBlockerInstance) {
             `;
         }
 
+        createOverlay() {
+            const oldOverlay = document.querySelector('.element-blocker-overlay');
+            if (oldOverlay) {
+                oldOverlay.remove();
+            }
+            
+            this.overlay = document.createElement('div');
+            this.overlay.className = 'element-blocker-overlay';
+            this.overlay.style.cssText = `
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                background: rgba(0,0,0,0.5) !important;
+                z-index: 2147483646 !important;
+            `;
+            
+            this.overlay.addEventListener('click', () => {
+                this.hideWidget();
+            });
+            
+            document.body.appendChild(this.overlay);
+        }
+
         hideWidget() {
             console.log('🔄 Hiding widget...');
             
             if (this.widget) {
                 this.widget.remove();
                 this.widget = null;
+            }
+            
+            if (this.overlay) {
+                this.overlay.remove();
+                this.overlay = null;
             }
             
             this.hideHighlight();
@@ -673,13 +722,16 @@ if (window.elementBlockerInstance) {
             if (this.widget) {
                 this.widget.remove();
             }
+
+            this.createOverlay();
             
             this.widget = document.createElement('div');
             this.widget.className = 'element-blocker-widget element-blocker-analysis';
             this.widget.style.cssText = `
                 position: fixed !important;
-                bottom: 20px !important;
-                right: 20px !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
                 width: 400px !important;
                 background: white !important;
                 border: 2px solid #2196F3 !important;
@@ -924,24 +976,24 @@ if (window.elementBlockerInstance) {
             if (this.widget) {
                 this.widget.remove();
             }
+
+            this.createOverlay();
             
             this.widget = document.createElement('div');
             this.widget.className = 'element-blocker-widget';
             this.widget.style.cssText = `
                 position: fixed !important;
-                bottom: 20px !important;
-                right: 20px !important;
-                width: 450px !important;
-                max-height: 80vh !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 500px !important;
                 background: white !important;
                 border: 2px solid #4CAF50 !important;
                 border-radius: 8px !important;
-                padding: 15px !important;
+                padding: 20px !important;
                 box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
                 z-index: 2147483647 !important;
                 font-family: Arial, sans-serif !important;
-                font-size: 12px !important;
-                overflow-y: auto !important;
             `;
             
             this.widget.innerHTML = this.getHierarchyWidgetHTML();
@@ -957,43 +1009,33 @@ if (window.elementBlockerInstance) {
             const hierarchyInfo = this.getHierarchyInfo();
             
             return `
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #e0e0e0; padding-bottom: 8px;">
-                    <h3 style="margin: 0; font-size: 14px; color: #4CAF50;">🎯 Выбор элемента</h3>
-                    <span style="background: #4CAF50; color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">
-                        ${this.currentLevel + 1}/${this.hierarchy.length}
-                    </span>
-                </div>
-                
+                <h3 style="color: #4CAF50; margin-top: 0;">🎯 Выбор элемента для блокировки</h3>
                 <div class="element-blocker-info" style="margin-bottom: 15px;">
-                    <div class="element-info" style="background: #f8f9fa; padding: 10px; border-radius: 4px; margin-bottom: 10px; border-left: 3px solid #4CAF50;">
+                    <div class="element-info" style="background: #f5f5f5; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
                         ${elementInfo}
                     </div>
-                    <div class="hierarchy-info" style="font-size: 11px; color: #666; background: #f5f5f5; padding: 8px; border-radius: 4px;">
+                    <div class="hierarchy-info" style="font-size: 11px; color: #666;">
                         ${hierarchyInfo}
                     </div>
                 </div>
-                
                 <div class="hierarchy-controls" style="margin-bottom: 15px;">
                     <div class="slider-container">
-                        <div style="font-size: 11px; color: #666; margin-bottom: 8px;">
-                            <strong>Перемещайте ползунок для выбора уровня элемента:</strong>
-                        </div>
+                        <strong>Иерархия элементов (${this.currentLevel + 1}/${this.hierarchy.length}):</strong>
                         <input type="range" class="element-blocker-slider" min="0" max="${this.hierarchy.length - 1}" value="${this.currentLevel}" 
-                               style="width: 100%; margin: 8px 0;">
+                               style="width: 100%; margin: 10px 0;">
                         <div class="slider-labels" style="display: flex; justify-content: space-between; font-size: 10px; color: #666;">
-                            <span>Body (корень)</span>
-                            <span>Выбранный элемент</span>
+                            <span class="slider-label">Body</span>
+                            <span class="slider-label">Выбранный элемент</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="element-blocker-buttons" style="display: flex; gap: 8px;">
+                <div class="element-blocker-buttons" style="display: flex; gap: 10px;">
                     <button class="element-blocker-btn element-blocker-add" 
-                            style="flex: 1; padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">
-                        ✅ Заблокировать
+                            style="flex: 1; padding: 10px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                        ✅ Заблокировать этот элемент
                     </button>
                     <button class="element-blocker-btn element-blocker-close" 
-                            style="flex: 1; padding: 10px; background: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                            style="flex: 1; padding: 10px; background: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">
                         ❌ Закрыть
                     </button>
                 </div>
@@ -1003,23 +1045,22 @@ if (window.elementBlockerInstance) {
         getElementInfo(element) {
             if (!element) return '<span class="no-element">Нет элемента</span>';
             
-            let info = `<div style="margin-bottom: 4px;"><strong>Тег:</strong> <code style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">${element.tagName.toLowerCase()}</code></div>`;
+            let info = `<div><strong>Тег:</strong> ${element.tagName}</div>`;
             
             if (element.id) {
-                info += `<div style="margin-bottom: 4px;"><strong>ID:</strong> <code style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">#${element.id}</code></div>`;
+                info += `<div><strong>ID:</strong> ${element.id}</div>`;
             }
             
             if (element.className && typeof element.className === 'string' && element.className.trim()) {
                 const classes = element.className.split(/\s+/).filter(c => c.length > 0);
                 if (classes.length > 0) {
-                    info += `<div style="margin-bottom: 4px;"><strong>Классы:</strong> <code style="background: #e9ecef; padding: 2px 4px; border-radius: 3px;">.${classes.join(' .')}</code></div>`;
+                    info += `<div><strong>Классы:</strong> ${classes.join(' ')}</div>`;
                 }
             }
             
             try {
                 const rect = element.getBoundingClientRect();
-                info += `<div style="margin-bottom: 4px;"><strong>Размер:</strong> ${Math.round(rect.width)}×${Math.round(rect.height)}px</div>`;
-                info += `<div><strong>Позиция:</strong> ${this.getElementPosition(element)}</div>`;
+                info += `<div><strong>Размер:</strong> ${Math.round(rect.width)}×${Math.round(rect.height)}px</div>`;
             } catch (e) {}
             
             return info;
@@ -1039,7 +1080,7 @@ if (window.elementBlockerInstance) {
                 levels.push(`<span style="${isActive ? 'color: #4CAF50; font-weight: bold;' : 'color: #666;'}">${tag}${id}${classes}</span>`);
             }
             
-            return `<div style="line-height: 1.4;">${levels.join(' › ')}</div>`;
+            return `<div>${levels.join(' › ')}</div>`;
         }
 
         addHierarchyWidgetEventListeners() {
@@ -1137,7 +1178,7 @@ if (window.elementBlockerInstance) {
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed !important;
-                bottom: 80px !important;
+                top: 20px !important;
                 right: 20px !important;
                 background: #4CAF50 !important;
                 color: white !important;
@@ -1146,7 +1187,6 @@ if (window.elementBlockerInstance) {
                 z-index: 2147483647 !important;
                 font-family: Arial, sans-serif !important;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-                font-size: 12px !important;
             `;
             notification.textContent = message;
             

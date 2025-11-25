@@ -12,21 +12,44 @@ async function getBlockedElements() {
   });
 }
 
-async function removeBlockedElement(index) {
-  const blockedElements = await getBlockedElements();
-  const updatedElements = blockedElements.filter((_, i) => i !== index);
-  await browser.storage.local.set({blockedElements: updatedElements});
-  return true;
+async function removeBlockedElement(globalIndex) {
+  try {
+    const blockedElements = await getBlockedElements();
+    
+    if (globalIndex >= 0 && globalIndex < blockedElements.length) {
+      const updatedElements = blockedElements.filter((_, i) => i !== globalIndex);
+      await browser.storage.local.set({blockedElements: updatedElements});
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error('Error removing blocked element:', error);
+    return false;
+  }
 }
 
 function setupButtons() {
   const exportBtn = document.getElementById('exportBtn');
   const importBtn = document.getElementById('importBtn');
   const analyzeBtn = document.getElementById('analyzeBtn');
+  const patternsBtn = document.getElementById('patternsBtn');
   
+  patternsBtn.addEventListener('click', openPatternsManager);
   exportBtn.addEventListener('click', exportBlockedElements);
   importBtn.addEventListener('click', importBlockedElements);
   analyzeBtn.addEventListener('click', startElementAnalysis);
+}
+
+async function openPatternsManager() {
+  try {
+    await browser.tabs.create({
+      url: browser.runtime.getURL('patterns.html'),
+      active: true
+    });
+    window.close();
+  } catch (error) {
+    alert('Ошибка открытия менеджера паттернов: ' + error.message);
+  }
 }
 
 async function exportBlockedElements() {
@@ -42,22 +65,11 @@ async function exportBlockedElements() {
       version: '1.0',
       exportDate: new Date().toISOString(),
       totalCount: blockedElements.length,
-      blockedElements: blockedElements.map(item => ({
-        url: item.url,
-        selector: item.selector,
-        method: item.method,
-        timestamp: item.timestamp,
-        originalHTML: item.originalHTML || '',
-        pageUrl: item.pageUrl || ''
-      }))
+      blockedElements: blockedElements
     };
 
     const jsonData = JSON.stringify(exportData, null, 2);
-    
-    const blob = new Blob([jsonData], { 
-      type: 'application/json;charset=utf-8' 
-    });
-    
+    const blob = new Blob([jsonData], { type: 'application/json;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -67,9 +79,7 @@ async function exportBlockedElements() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     
-    console.log('Экспортировано блокировок:', blockedElements.length);
   } catch (error) {
-    console.error('Ошибка при экспорте:', error);
     alert('Ошибка при экспорте: ' + error.message);
   }
 }
@@ -80,11 +90,8 @@ async function importBlockedElements() {
       url: browser.runtime.getURL('import.html'),
       active: true
     });
-    
     window.close();
-    
   } catch (error) {
-    console.error('Error opening import tab:', error);
     alert('Ошибка открытия импорта: ' + error.message);
   }
 }
@@ -92,10 +99,64 @@ async function importBlockedElements() {
 async function startElementAnalysis() {
   try {
     const tabs = await browser.tabs.query({active: true, currentWindow: true});
-    await browser.tabs.sendMessage(tabs[0].id, {action: "startAnalysis"});
+    const currentTab = tabs[0];
+    
+    console.log('🚀 Starting analysis on tab:', currentTab.id);
+    
+    // Проверяем, не встроен ли уже content script
+    try {
+      // Пробуем отправить сообщение - если получится, значит content script уже активен
+      await browser.tabs.sendMessage(currentTab.id, {action: "ping"});
+      console.log('✅ Content script already active');
+    } catch (error) {
+      // Если не получилось, встраиваем content script
+      console.log('🔄 Injecting content script...');
+      await browser.tabs.executeScript(currentTab.id, {
+        file: 'content.js',
+        runAt: 'document_end'
+      });
+      
+      // Ждем инициализации content script
+      console.log('🔄 Waiting for content script initialization...');
+      await waitForContentScript(currentTab.id);
+    }
+    
+    // Теперь отправляем команду анализа
+    await browser.tabs.sendMessage(currentTab.id, {action: "startAnalysis"});
+    console.log('✅ Analysis message sent');
     window.close();
+    
   } catch (error) {
-    alert('Ошибка запуска анализа: ' + error.message);
+    console.error('❌ Error starting analysis:', error);
+    
+    // Более информативное сообщение об ошибке
+    if (error.message.includes('Could not establish connection')) {
+      alert('Ошибка: Content script не отвечает. Попробуйте обновить страницу и повторить.');
+    } else if (error.message.includes('No tab with id')) {
+      alert('Ошибка: Вкладка не найдена. Попробуйте снова.');
+    } else {
+      alert('Ошибка запуска анализа: ' + error.message);
+    }
+  }
+}
+
+// Функция ожидания готовности content script
+async function waitForContentScript(tabId, maxAttempts = 10) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      console.log(`🔄 Attempt ${attempt} to connect to content script...`);
+      await browser.tabs.sendMessage(tabId, {action: "ping"});
+      console.log('✅ Content script is ready');
+      return true;
+    } catch (error) {
+      if (attempt < maxAttempts) {
+        // Ждем перед следующей попыткой
+        await new Promise(resolve => setTimeout(resolve, 200));
+      } else {
+        console.error('❌ Content script not ready after', maxAttempts, 'attempts');
+        throw new Error('Content script initialization timeout');
+      }
+    }
   }
 }
 
@@ -123,7 +184,6 @@ async function loadCurrentSiteInfo() {
       document.getElementById('currentCount').textContent = count;
     }
   } catch (error) {
-    console.log('Error loading current site info:', error);
     document.getElementById('currentSite').textContent = 'Текущий сайт: неизвестен';
     document.getElementById('currentCount').textContent = '0';
   }
@@ -142,8 +202,10 @@ async function loadBlockedElements() {
       return;
     }
     
-    const currentSiteElements = blockedElements.filter(item => {
+    const currentSiteElements = blockedElements.filter((item, globalIndex) => {
       if (!item || !item.url) return false;
+      item.globalIndex = globalIndex;
+      
       try {
         if (item.url.startsWith('http')) {
           const itemHost = new URL(item.url).hostname;
@@ -161,19 +223,18 @@ async function loadBlockedElements() {
       return;
     }
     
-    blockedList.innerHTML = currentSiteElements.map((item, index) => {
+    blockedList.innerHTML = currentSiteElements.map((item) => {
       const timestamp = item.timestamp ? new Date(item.timestamp).toLocaleString() : 'Неизвестно';
       const method = item.method || 'hidden';
-      const url = item.url || 'Неизвестный сайт';
       const selector = item.selector || 'Неизвестный селектор';
+      const globalIndex = item.globalIndex;
       
       return `
         <div class="blocked-item">
           <div class="blocked-header">
-            <span class="blocked-url">${url}</span>
-            <button class="remove-btn" data-index="${index}">Удалить</button>
+            <span class="blocked-selector">${selector}</span>
+            <button class="remove-btn" data-global-index="${globalIndex}">Удалить</button>
           </div>
-          <div class="blocked-selector">${selector}</div>
           <div class="blocked-time">Добавлен: ${timestamp}</div>
           <div class="blocked-time">Метод: ${method}</div>
         </div>
@@ -182,18 +243,19 @@ async function loadBlockedElements() {
     
     document.querySelectorAll('.remove-btn').forEach(btn => {
       btn.addEventListener('click', async (e) => {
-        const index = parseInt(e.target.dataset.index);
-        if (!isNaN(index)) {
-          await removeBlockedElement(index);
-          await loadCurrentSiteInfo();
-          await loadBlockedElements();
-          browser.tabs.reload();
+        const globalIndex = parseInt(e.target.dataset.globalIndex);
+        if (!isNaN(globalIndex)) {
+          const success = await removeBlockedElement(globalIndex);
+          if (success) {
+            await loadCurrentSiteInfo();
+            await loadBlockedElements();
+            browser.tabs.reload();
+          }
         }
       });
     });
     
   } catch (error) {
-    console.log('Error loading blocked elements:', error);
     document.getElementById('blockedList').innerHTML = '<div class="empty-message">Ошибка загрузки списка</div>';
   }
 }

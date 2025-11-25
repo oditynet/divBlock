@@ -1,48 +1,40 @@
 {
   "manifest_version": 2,
-  "name": "Element Blocker Pro",
+  "name": "Element Blocker Pro", 
   "version": "1.0",
   "description": "Блокировка элементов с визуальным выбором и подсчетом",
   
   "permissions": [
-    "activeTab",
+    "activeTab", 
     "storage",
     "contextMenus",
-    "<all_urls>"
+    "tabs",
+    "http://*/*",
+    "https://*/*"
   ],
 
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-   "web_accessible_resources": [
-    "import.html"
-  ],
-
 
   "browser_action": {
     "default_title": "Element Blocker",
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icon16.png",
-      "32": "icon32.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
-    }
+    "default_popup": "popup.html"
   },
 
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["content.js"],
-      "css": ["content.css"],
-      "run_at": "document_start"
+      "run_at": "document_end",
+      "all_frames": false
     }
   ],
 
   "icons": {
     "16": "icon16.png",
-    "32": "icon32.png",
+    "32": "icon32.png", 
     "48": "icon48.png",
     "128": "icon128.png"
   }
