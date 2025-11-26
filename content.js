@@ -169,7 +169,7 @@ if (window.elementBlockerInstance) {
             return details;
         }
         
-        /*injectStyles() {
+        injectStyles() {
             if (document.getElementById('element-blocker-styles')) {
                 return;
             }
@@ -222,62 +222,7 @@ if (window.elementBlockerInstance) {
             
             document.head.appendChild(style);
             console.log('✅ Стили для подсветки добавлены');
-        }*/
-        
-        injectStyles() {
-    if (document.getElementById('element-blocker-styles')) {
-        return;
-    }
-    
-    const style = document.createElement('style');
-    style.id = 'element-blocker-styles';
-    style.textContent = `
-        .element-blocker-highlight {
-            position: absolute !important;
-            background: rgba(255, 0, 0, 0.15) !important;
-            border: 2px solid #ff4444 !important;
-            pointer-events: none !important;
-            z-index: 2147483645 !important;
-            display: none !important;
-            box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4) !important;
-            animation: elementBlockerPulse 1.5s infinite !important;
         }
-        
-        @keyframes elementBlockerPulse {
-            0% { 
-                box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4);
-                border-color: #ff4444;
-            }
-            50% { 
-                box-shadow: 0 0 0 2px #ff6666, 0 0 20px rgba(255,102,102,0.6);
-                border-color: #ff6666;
-            }
-            100% { 
-                box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4);
-                border-color: #ff4444;
-            }
-        }
-        
-        .element-blocker-widget {
-            position: fixed !important;
-            background: white !important;
-            border: 2px solid #4CAF50 !important;
-            border-radius: 8px !important;
-            padding: 15px !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
-            z-index: 2147483647 !important;
-            font-family: Arial, sans-serif !important;
-            max-width: 400px !important;
-        }
-        
-        .element-blocker-analysis {
-            border-color: #FF9800 !important;
-        }
-    `;
-    
-    document.head.appendChild(style);
-    console.log('✅ Стили для подсветки добавлены');
-}
 
         /*createHighlightElement() {
             console.log('🛠️ Creating highlight element...');
@@ -352,71 +297,90 @@ if (window.elementBlockerInstance) {
             });
         }
 
-        async applyExistingBlocks() {
+async applyExistingBlocks() {
+    try {
+        const result = await browser.storage.local.get({blockedElements: []});
+        const currentHost = window.location.hostname;
+        
+        console.log('📋 All blocked elements from storage:', result.blockedElements);
+        
+        const siteBlocks = result.blockedElements.filter(item => {
             try {
-                const result = await browser.storage.local.get({blockedElements: []});
-                const currentHost = window.location.hostname;
-                
-                const siteBlocks = result.blockedElements.filter(item => {
-                    try {
-                        if (item.url.startsWith('http')) {
-                            const itemHost = new URL(item.url).hostname;
-                            return itemHost === currentHost;
-                        } else {
-                            return item.url === currentHost;
-                        }
-                    } catch {
-                        return item.url === currentHost;
-                    }
-                });
-                
-                console.log('🎯 Blocks for this site:', siteBlocks.length);
-                
-                siteBlocks.forEach(item => {
-                    this.applyBlocking(item);
-                });
-                
-                this.updateBlockCount();
-                
-            } catch (error) {
-                console.error('❌ Error applying existing blocks:', error);
-            }
-        }
-
-        applyBlocking(blockItem) {
-            try {
-                const elements = document.querySelectorAll(blockItem.selector);
-                console.log(`🔧 Applying block to ${elements.length} elements with selector: ${blockItem.selector}`);
-                
-                elements.forEach(element => {
-                    this.blockElement(element, blockItem.method);
-                });
-            } catch (error) {
-                console.warn('Error applying block:', error, 'for selector:', blockItem.selector);
-            }
-        }
-
-        blockElement(element, method) {
-            if (!element || element.nodeType !== 1) return;
-            
-            if (element.classList.contains('element-blocker-blocked')) {
-                return;
-            }
-            
-            console.log('🚫 Blocking element:', element);
-            
-            if (element.tagName === 'iframe') {
-                console.log('Blocking iframe:', element.src);
-                if (element.parentNode) {
-                    element.parentNode.removeChild(element);
+                if (item.url.startsWith('http')) {
+                    const itemHost = new URL(item.url).hostname;
+                    return itemHost === currentHost;
+                } else {
+                    return item.url === currentHost;
                 }
-                return;
+            } catch {
+                return item.url === currentHost;
             }
-            
-            element.classList.add('element-blocker-blocked');
-            element.style.setProperty('display', 'none', 'important');
-        }
+        });
+        
+        console.log('🎯 Blocks for this site:', siteBlocks.length, siteBlocks);
+        
+        // Применяем блокировки
+        siteBlocks.forEach(item => {
+            console.log(`🛠️ Processing block: ${item.selector} for ${item.url}`);
+            this.applyBlocking(item);
+        });
+        
+        this.updateBlockCount();
+        
+        // Повторная проверка через секунду на случай динамической загрузки
+        setTimeout(() => {
+            console.log('🔄 Re-applying blocks for dynamic content');
+            siteBlocks.forEach(item => {
+                this.applyBlocking(item);
+            });
+        }, 1000);
+        
+    } catch (error) {
+        console.error('❌ Error applying existing blocks:', error);
+    }
+}
 
+
+
+applyBlocking(blockItem) {
+    try {
+        console.log(`🔧 Applying blocking for selector: ${blockItem.selector}`);
+        
+        // Используем селектор из хранилища
+        const elements = document.querySelectorAll(blockItem.selector);
+        console.log(`🔧 Found ${elements.length} elements with selector: ${blockItem.selector}`);
+        
+        elements.forEach(element => {
+            this.blockElement(element, blockItem.method);
+        });
+        
+    } catch (error) {
+        console.warn('Error applying block:', error, 'for selector:', blockItem.selector);
+    }
+}
+
+blockElement(element, method) {
+    if (!element || element.nodeType !== 1) return;
+    
+    if (element.classList.contains('element-blocker-blocked')) {
+        return;
+    }
+    
+    console.log('🚫 Blocking element:', element);
+    
+    // Добавляем класс для отслеживания
+    element.classList.add('element-blocker-blocked');
+    
+    // Применяем скрытие
+    element.style.setProperty('display', 'none', 'important');
+    element.style.setProperty('visibility', 'hidden', 'important');
+    
+    // Для iframe дополнительно убираем src
+    if (element.tagName === 'IFRAME') {
+        console.log('Blocking iframe:', element.src);
+        element.setAttribute('src', 'about:blank');
+    }
+}
         updateBlockCount() {
             const currentHost = window.location.hostname;
             browser.storage.local.get({blockedElements: []}).then(result => {
@@ -839,7 +803,7 @@ if (window.elementBlockerInstance) {
             });
         }
 
-        /*highlightSuspiciousElement(index) {
+        highlightSuspiciousElement(index) {
             console.log('=== НАЧАЛО ПОДСВЕТКИ ===');
             
             const item = this.suspiciousElements[index];
@@ -881,59 +845,7 @@ if (window.elementBlockerInstance) {
             } catch (error) {
                 console.error('❌ Ошибка подсветки:', error);
             }
-        }*/
-        
-        highlightSuspiciousElement(index) {
-    console.log('=== НАЧАЛО ПОДСВЕТКИ ССЫПИЧЕСКОГО ЭЛЕМЕНТА ===');
-    
-    const item = this.suspiciousElements[index];
-    if (!item || !item.element) {
-        console.log('❌ Элемент не найден');
-        return;
-    }
-
-    const elementToHighlight = this.findVisibleParent(item.element);
-
-    if (!document.body.contains(elementToHighlight)) {
-        console.log('❌ Элемент не в DOM');
-        return;
-    }
-
-    try {
-        const rect = elementToHighlight.getBoundingClientRect();
-        const scrollX = window.scrollX || window.pageXOffset;
-        const scrollY = window.scrollY || window.pageYOffset;
-
-        // Убедимся, что highlightElement существует
-        if (!this.highlightElement) {
-            console.log('🛠️ Creating highlight element for suspicious element...');
-            this.createHighlightElement();
         }
-
-        // ИСПОЛЬЗУЕМ ТАКУЮ ЖЕ ПОДСВЕТКУ КАК В HIERARCHY
-        this.highlightElement.style.cssText = `
-            position: absolute !important;
-            left: ${rect.left + scrollX}px !important;
-            top: ${rect.top + scrollY}px !important;
-            width: ${rect.width}px !important;
-            height: ${rect.height}px !important;
-            background: rgba(255, 0, 0, 0.15) !important;
-            border: 2px solid #ff4444 !important;
-            pointer-events: none !important;
-            z-index: 2147483646 !important;
-            display: block !important;
-            box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4) !important;
-            animation: elementBlockerPulse 1.5s infinite !important;
-        `;
-
-        console.log('✅ Подсветка установлена для элемента:', elementToHighlight.tagName, elementToHighlight.id || elementToHighlight.className);
-
-        this.scrollToElement(elementToHighlight);
-
-    } catch (error) {
-        console.error('❌ Ошибка подсветки:', error);
-    }
-}
 
         scrollToElement(element) {
             try {
