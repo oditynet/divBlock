@@ -169,7 +169,7 @@ if (window.elementBlockerInstance) {
             return details;
         }
         
-        injectStyles() {
+        /*injectStyles() {
             if (document.getElementById('element-blocker-styles')) {
                 return;
             }
@@ -222,9 +222,64 @@ if (window.elementBlockerInstance) {
             
             document.head.appendChild(style);
             console.log('✅ Стили для подсветки добавлены');
+        }*/
+        
+        injectStyles() {
+    if (document.getElementById('element-blocker-styles')) {
+        return;
+    }
+    
+    const style = document.createElement('style');
+    style.id = 'element-blocker-styles';
+    style.textContent = `
+        .element-blocker-highlight {
+            position: absolute !important;
+            background: rgba(255, 0, 0, 0.15) !important;
+            border: 2px solid #ff4444 !important;
+            pointer-events: none !important;
+            z-index: 2147483645 !important;
+            display: none !important;
+            box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4) !important;
+            animation: elementBlockerPulse 1.5s infinite !important;
         }
+        
+        @keyframes elementBlockerPulse {
+            0% { 
+                box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4);
+                border-color: #ff4444;
+            }
+            50% { 
+                box-shadow: 0 0 0 2px #ff6666, 0 0 20px rgba(255,102,102,0.6);
+                border-color: #ff6666;
+            }
+            100% { 
+                box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4);
+                border-color: #ff4444;
+            }
+        }
+        
+        .element-blocker-widget {
+            position: fixed !important;
+            background: white !important;
+            border: 2px solid #4CAF50 !important;
+            border-radius: 8px !important;
+            padding: 15px !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+            z-index: 2147483647 !important;
+            font-family: Arial, sans-serif !important;
+            max-width: 400px !important;
+        }
+        
+        .element-blocker-analysis {
+            border-color: #FF9800 !important;
+        }
+    `;
+    
+    document.head.appendChild(style);
+    console.log('✅ Стили для подсветки добавлены');
+}
 
-        createHighlightElement() {
+        /*createHighlightElement() {
             console.log('🛠️ Creating highlight element...');
             
             const oldHighlights = document.querySelectorAll('.element-blocker-highlight');
@@ -245,7 +300,32 @@ if (window.elementBlockerInstance) {
             
             document.body.appendChild(this.highlightElement);
             console.log('✅ Highlight element created and appended to body');
-        }
+        }*/
+        
+        createHighlightElement() {
+    console.log('🛠️ Creating highlight element...');
+    
+    // Удаляем старые подсветки
+    const oldHighlights = document.querySelectorAll('.element-blocker-highlight');
+    oldHighlights.forEach(el => el.remove());
+
+    this.highlightElement = document.createElement('div');
+    this.highlightElement.className = 'element-blocker-highlight';
+    
+    this.highlightElement.style.cssText = `
+        position: absolute !important;
+        background: rgba(255, 0, 0, 0.3) !important;
+        border: 4px solid #ff0000 !important;
+        pointer-events: none !important;
+        z-index: 2147483646 !important;
+        display: none !important;
+        box-shadow: 0 0 0 4px #ff0000, 0 0 30px rgba(255,0,0,0.8) !important;
+        animation: elementBlockerPulse 1s infinite !important;
+    `;
+    
+    document.body.appendChild(this.highlightElement);
+    console.log('✅ Highlight element created and appended to body');
+}
 
         addEventListeners() {
             document.addEventListener('mousedown', (e) => {
@@ -759,7 +839,7 @@ if (window.elementBlockerInstance) {
             });
         }
 
-        highlightSuspiciousElement(index) {
+        /*highlightSuspiciousElement(index) {
             console.log('=== НАЧАЛО ПОДСВЕТКИ ===');
             
             const item = this.suspiciousElements[index];
@@ -801,7 +881,59 @@ if (window.elementBlockerInstance) {
             } catch (error) {
                 console.error('❌ Ошибка подсветки:', error);
             }
+        }*/
+        
+        highlightSuspiciousElement(index) {
+    console.log('=== НАЧАЛО ПОДСВЕТКИ ССЫПИЧЕСКОГО ЭЛЕМЕНТА ===');
+    
+    const item = this.suspiciousElements[index];
+    if (!item || !item.element) {
+        console.log('❌ Элемент не найден');
+        return;
+    }
+
+    const elementToHighlight = this.findVisibleParent(item.element);
+
+    if (!document.body.contains(elementToHighlight)) {
+        console.log('❌ Элемент не в DOM');
+        return;
+    }
+
+    try {
+        const rect = elementToHighlight.getBoundingClientRect();
+        const scrollX = window.scrollX || window.pageXOffset;
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        // Убедимся, что highlightElement существует
+        if (!this.highlightElement) {
+            console.log('🛠️ Creating highlight element for suspicious element...');
+            this.createHighlightElement();
         }
+
+        // ИСПОЛЬЗУЕМ ТАКУЮ ЖЕ ПОДСВЕТКУ КАК В HIERARCHY
+        this.highlightElement.style.cssText = `
+            position: absolute !important;
+            left: ${rect.left + scrollX}px !important;
+            top: ${rect.top + scrollY}px !important;
+            width: ${rect.width}px !important;
+            height: ${rect.height}px !important;
+            background: rgba(255, 0, 0, 0.15) !important;
+            border: 2px solid #ff4444 !important;
+            pointer-events: none !important;
+            z-index: 2147483646 !important;
+            display: block !important;
+            box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4) !important;
+            animation: elementBlockerPulse 1.5s infinite !important;
+        `;
+
+        console.log('✅ Подсветка установлена для элемента:', elementToHighlight.tagName, elementToHighlight.id || elementToHighlight.className);
+
+        this.scrollToElement(elementToHighlight);
+
+    } catch (error) {
+        console.error('❌ Ошибка подсветки:', error);
+    }
+}
 
         scrollToElement(element) {
             try {
@@ -925,6 +1057,11 @@ if (window.elementBlockerInstance) {
                 this.widget.remove();
             }
             
+             // Создаем элемент подсветки если его нет
+    if (!this.highlightElement) {
+        this.createHighlightElement();
+    }
+            
             this.widget = document.createElement('div');
             this.widget.className = 'element-blocker-widget';
             this.widget.style.cssText = `
@@ -1042,7 +1179,7 @@ if (window.elementBlockerInstance) {
             return `<div style="line-height: 1.4;">${levels.join(' › ')}</div>`;
         }
 
-        addHierarchyWidgetEventListeners() {
+    /*    addHierarchyWidgetEventListeners() {
             const slider = this.widget.querySelector('.element-blocker-slider');
             const addBtn = this.widget.querySelector('.element-blocker-add');
             const closeBtn = this.widget.querySelector('.element-blocker-close');
@@ -1060,13 +1197,35 @@ if (window.elementBlockerInstance) {
             closeBtn.addEventListener('click', () => {
                 this.hideWidget();
             });
-        }
+        }*/
+        
+        addHierarchyWidgetEventListeners() {
+    const slider = this.widget.querySelector('.element-blocker-slider');
+    const addBtn = this.widget.querySelector('.element-blocker-add');
+    const closeBtn = this.widget.querySelector('.element-blocker-close');
+    
+    slider.addEventListener('input', (e) => {
+        this.currentLevel = parseInt(e.target.value);
+        this.updateHierarchyWidgetInfo(); // Теперь это обновит и информацию и подсветку
+    });
+    
+    addBtn.addEventListener('click', () => {
+        this.addToBlocklist();
+    });
+    
+    closeBtn.addEventListener('click', () => {
+        this.hideWidget();
+    });
+}
 
-        updateHierarchyWidgetInfo() {
+    /*    updateHierarchyWidgetInfo() {
             if (!this.widget) return;
             
             const elementInfo = this.widget.querySelector('.element-info');
             const hierarchyInfo = this.widget.querySelector('.hierarchy-info');
+            
+            console.log("2222222");
+            console.log(elementInfo);
             
             if (elementInfo) {
                 const currentElement = this.hierarchy[this.currentLevel];
@@ -1076,10 +1235,34 @@ if (window.elementBlockerInstance) {
             if (hierarchyInfo) {
                 hierarchyInfo.innerHTML = this.getHierarchyInfo();
             }
+            
         }
+*/
 
-        updateHighlight() {
+updateHierarchyWidgetInfo() {
+    if (!this.widget) return;
+    
+    const currentElement = this.hierarchy[this.currentLevel];
+    const elementInfo = this.getElementInfo(currentElement);
+    const hierarchyInfo = this.getHierarchyInfo();
+    
+    // Обновляем только информационные блоки, не пересоздавая весь виджет
+    const elementInfoDiv = this.widget.querySelector('.element-info');
+    const hierarchyInfoDiv = this.widget.querySelector('.hierarchy-info');
+    const levelSpan = this.widget.querySelector('span[style*="background: #4CAF50"]');
+    
+    if (elementInfoDiv) elementInfoDiv.innerHTML = elementInfo;
+    if (hierarchyInfoDiv) hierarchyInfoDiv.innerHTML = hierarchyInfo;
+    if (levelSpan) levelSpan.textContent = `${this.currentLevel + 1}/${this.hierarchy.length}`;
+    
+    // Обновляем подсветку элемента НА СТРАНИЦЕ
+    this.updateHighlight();
+}
+    /*    updateHighlight() {
             const element = this.hierarchy[this.currentLevel];
+            
+            console.log("!!!");
+            console.log(element);
             if (element) {
                 const rect = element.getBoundingClientRect();
                 
@@ -1089,8 +1272,77 @@ if (window.elementBlockerInstance) {
                 this.highlightElement.style.width = rect.width + 'px';
                 this.highlightElement.style.height = rect.height + 'px';
             }
-        }
+        }*/
+/*        updateHighlight() {
+    const element = this.hierarchy[this.currentLevel];
+    
+    if (!element) return;
+    
+    console.log('🔄 Updating highlight for element:', element);
+    
+    try {
+        const rect = element.getBoundingClientRect();
+        
+        this.highlightElement.style.display = 'block';
+        this.highlightElement.style.left = (rect.left + window.scrollX) + 'px';
+        this.highlightElement.style.top = (rect.top + window.scrollY) + 'px';
+        this.highlightElement.style.width = rect.width + 'px';
+        this.highlightElement.style.height = rect.height + 'px';
+        
+        console.log('✅ Highlight updated for:', element.tagName, element.id || element.className);
+    } catch (error) {
+        console.error('❌ Error updating highlight:', error);
+    }
+}*/
 
+
+updateHighlight() {
+    const element = this.hierarchy[this.currentLevel];
+    
+    if (!element) {
+        console.log('❌ No element to highlight');
+        return;
+    }
+    
+    console.log('🔄 Updating highlight for element:', element.tagName, element.id || element.className);
+    
+    // Убедимся, что highlightElement существует
+    if (!this.highlightElement) {
+        console.log('🛠️ Creating highlight element...');
+        this.createHighlightElement();
+    }
+    
+    try {
+        const rect = element.getBoundingClientRect();
+        const scrollX = window.scrollX || window.pageXOffset;
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        console.log('📏 Element rect:', rect);
+        console.log('🎯 Scroll position:', scrollX, scrollY);
+        
+        // Яркая подсветка для лучшей видимости
+ this.highlightElement.style.cssText = `
+            position: absolute !important;
+            left: ${rect.left + scrollX}px !important;
+            top: ${rect.top + scrollY}px !important;
+            width: ${rect.width}px !important;
+            height: ${rect.height}px !important;
+            background: rgba(255, 0, 0, 0.15) !important; /* Более прозрачный */
+            border: 2px solid #ff4444 !important; /* Тонкая рамка */
+            pointer-events: none !important;
+            z-index: 2147483646 !important;
+            display: block !important;
+            box-shadow: 0 0 0 1px #ff4444, 0 0 15px rgba(255,68,68,0.4) !important; /* Мягкая тень */
+            animation: elementBlockerPulse 1.5s infinite !important; /* Медленнее пульсация */
+        `;
+
+        
+        console.log('✅ Highlight applied to:', element);
+        
+    } catch (error) {
+        console.error('❌ Error updating highlight:', error);
+    }
+}
         async addToBlocklist() {
             const element = this.hierarchy[this.currentLevel];
             if (!element) return;
